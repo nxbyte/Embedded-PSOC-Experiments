@@ -1,5 +1,5 @@
 /*
- Developer : Warren Seto
+ Author: Warren Seto
  Experiment: 1
  */
 
@@ -17,7 +17,7 @@ uint32_t implementer, variant, partno, revision;
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-
+    
     /* Establishing a pointer to the register: NVIC_CPUID_BASE_ADDR */
     uint32_t volatile *cpuPointer;
     cpuPointer = (uint32_t *) NVIC_CPUID_BASE_ADDR;
@@ -34,14 +34,15 @@ int main()
     prtPointer = (uint32_t *) CYREG_PRT6_DR;
     reg_val = *prtPointer;
     
-    while (1) 
+    /* An infinite loop to continuously blink the LEDs in 500ms intervals */
+    for(;;)
     {
         /* Modify and write the value to the [3:2] bites of the CYREG_PRT6_DR register */
         reg_val |= 1 << 2;
         reg_val |= 1 << 3;
         *prtPointer = reg_val;
         
-        /* Add delay to see the effects of lighting up the LEDs after 'programming' the PSOC */
+        /* Add delay to see the effects of lighting up the LEDs after toggling bits [3:2] */
         CyDelay(500);
         
         /* Clear the specificed bits [3:2] of the CYREG_PRT6_DR register */
@@ -49,11 +50,9 @@ int main()
         reg_val &= ~(1 << 3);
         *prtPointer = reg_val;
         
-        /* Add delay to see the effects of turning off the LEDs after 'programming' the PSOC */
+        /* Add delay to see the effects of turning off the LEDs after clearing bits [3:2] */
         CyDelay(500);
     }
-    
-    return 0;
 }
 
 /* [] END OF FILE */

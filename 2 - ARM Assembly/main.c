@@ -1,5 +1,5 @@
 /*
- Developer : Warren Seto
+ Authors: Nikita Eisenhauer, Brandon Siebert and Warren Seto
  Experiment: 2
  */
 

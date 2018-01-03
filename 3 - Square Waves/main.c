@@ -1,57 +1,43 @@
 /*
- Developer : Warren Seto
+ Author: Warren Seto
  Experiment: 3
  */
 
 #include <project.h>
-#include <stdio.h>
-#include <cydevice_trm.h>
 
 int main()
 {
-    CyGlobalIntEnable;
-
-    uint8_t volatile buttonState;
+    CyGlobalIntEnable; /* Enable global interrupts. */
     
-    // Uncomment and re-run to perform experiments
+    uint8_t volatile buttonState;
     
     for(;;)
     {
-        /* With no delay */
-        
+        /* Toggle Pin continuously with no delay (produces a square wave). (1.5 microseconds per period or approximately 666666.7 Hz) */
         Pin_1_Write(1);
         Pin_1_Write(0);
         
-        
-        /* Square Wave (992ms per period) */
-        /*
+        /* Toggle Pin continuously with a delay of 500ms. (992ms per period or approximately 2 Hz) */
         Pin_1_Write(1);
         CyDelay(500);
         Pin_1_Write(0);
         CyDelay(500);
-        */
         
-        /* Square Wave (99.2ms per period) */
-        /*
+        /* Toggle Pin continuously with a delay of 50ms. (99.2ms per period or approximately 20 Hz) */
         Pin_1_Write(1);
         CyDelay(50);
         Pin_1_Write(0);
         CyDelay(50);
-        */
                 
-        /* Square Wave (992ms per period) */
-        /*
+        /* Toggle Pin continuously with a delay of 500ms. This will effectively link the LED 60 times in a minute. */
         Pin_1_Write(1);
         CyDelay(500);
         Pin_1_Write(0);
         CyDelay(500);
-        */
 
-        /* Read the state of the button and light the LED accordingly */
-        /*
+        /* Read the state of the button and toggle the output pin to light the LED accordingly. */
         buttonState = Pin_3_Read();
         Pin_2_Write(~buttonState);
-        */
     }
 }
 

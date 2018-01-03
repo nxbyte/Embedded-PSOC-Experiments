@@ -1,5 +1,5 @@
 /*
- Developer : Warren Seto
+ Authors: Warren Seto
  Experiment: 4
  */
 
