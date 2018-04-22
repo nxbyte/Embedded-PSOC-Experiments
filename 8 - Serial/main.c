@@ -15,8 +15,8 @@ int main()
     UART_1_Start();
     
     /* Initialize the PSoC's LCD */
-	LCD_Char_1_Start();
-	LCD_Char_1_Position(0,0);
+    LCD_Char_1_Start();
+    LCD_Char_1_Position(0,0);
 	
     /* Local variables to control the state of the PSoC's output */
     int stringIndex = 0;
@@ -24,7 +24,7 @@ int main()
     
     /* Infinite loop to continuously send and receive characters */
     while(1)
-	{
+    {
         /* Send the String through the PSoC's Serial Port */
         UART_1_PutString(quoteString);
         
@@ -46,9 +46,9 @@ int main()
             
             if (stringIndex == 8)
             {
-                LCD_Char_1_Position(0,0);
+                LCD_Char_1_Position(0, 0);
                 stringIndex = 0;
             }
-		}	
-	}	
+        }
+    }
 }

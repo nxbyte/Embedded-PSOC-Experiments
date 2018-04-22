@@ -12,7 +12,6 @@
 void generateSineTable(uint8_t *inputTable)
 {
     int count; // Controls the Look-up Generator Loop
-    
     float resolutionAmplitude = RESOLUTION / 4.0; // Calculate the amplitude of the sine wave given a resolution
     float radiansPerSample = M_PI / RESOLUTION; // Calculate the radians for a given resolution
     
