@@ -5,7 +5,6 @@
 .syntax unified
 .text
 
-
 .global read_nvic_cpuid_base
 
 .func read_nvic_cpuid_base, read_nvic_cpuid_base
@@ -42,4 +41,3 @@ read_nvic_cpuid_base:
 .endfunc
 
     .end
-

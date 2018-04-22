@@ -31,7 +31,6 @@ int main()
         for (count = 0; count < ROTATE_DURATION; count++)
         {
             Pin_1_Write(phase[dir][count % PHASE_STEPS]);
-            
             CyDelay(10);
         }
         
@@ -41,4 +40,3 @@ int main()
         dir = !dir;
     }
 }
-

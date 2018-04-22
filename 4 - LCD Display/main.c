@@ -9,7 +9,7 @@ int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
 
-char* quoteString = "To\n";
+    char* quoteString = "To\n";
 	
 	// Local variablers to control the state of the PSoC's output
 	int stringIndex = 0;
@@ -36,7 +36,6 @@ char* quoteString = "To\n";
 			
 			LCD_Char_1_PutChar(currentChar);
 			stringIndex++;
-			
             
 			if (stringIndex == 8)
 			{
